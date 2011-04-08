@@ -1,0 +1,94 @@
+-- Version 0.21 -- 2011/02/21
+
+ * Improve dump/restore
+ * Improve udp interface (user libevent)
+
+-- Version 0.20 -- 2010/07/22
+
+ * Add command "parse"
+ * Add keyword "noduplicate" to "user <> messages add" command
+
+-- Version 0.19 -- 2009/12/07
+
+ * Change syntax of "fetch" command ("since" => "before")
+
+-- Version 0.18 -- 2009/12/01
+
+ * Add command "addstats"
+ * Add munin plugin "fluxy_addstats"
+
+-- Version 0.17 -- 2009/11/30
+
+ * Add stats field "error::UNEXISTING_USER"
+ * Add command "user <> messages count [unseen]"
+
+-- Version 0.16 -- 2009/11/24
+
+ * Add command "messages seen all|last <id>[:<type>]]
+ * Add mutex to Stats object
+ * Add mutex for Users::hash_table
+ * Handle signals after termination of data restoration
+
+-- Version 0.15 -- 2009/11/12
+
+ * Add field "flags" to messages
+
+-- Version 0.14 -- 2009/11/10
+
+ * Catch SIGTERM signal
+
+-- Version 0.13 -- 2009/11/10
+
+ * Improve replication
+
+-- Version 0.12 -- 2009/11/09
+
+ * Fix bug of UserMessages::update() (reallocate buffer if necessary)
+ * Can select messages by "<id>:<type>"
+
+-- Version 0.11 -- 2009/11/06
+
+ * Rename field "viewed" => "seen"
+ * Change max buffers size => 32768 bytes
+ * Improve autodump
+ * Force autodump at program termination
+
+-- Version 0.10 -- 2009/11/04
+
+ * Rename field "readen" => "viewed"
+
+-- Version 0.9 -- 2009/11/04
+
+ * Add new field "readen" to messages
+
+-- Version 0.8 -- 2009/10/27
+
+ * Allows crossed replication
+
+-- Version 0.7 -- 2009/10/23
+
+ * Fix bug of "stats" command
+ * Fix bug of special chars in "dump" command
+
+-- Version 0.6 -- 2009/10/22
+
+ * Add command "autodump stats"
+
+-- Version 0.5 -- 2009/10/20
+
+ * Max number of messages is settable
+ * Default max number of messages is 50
+ * Improve "user <id> messages add" command (add return value)
+
+-- Version 0.4 -- 2009/10/19
+
+ * Add udp replication
+
+-- Version 0.3 -- 2009/09/16 
+
+ * Add memory recycler
+
+-- Version 0.2 -- 2009/09/10
+
+ * Change body's encoding format
+ * Change type of "type" field => uint32_t

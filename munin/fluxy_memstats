@@ -1,0 +1,39 @@
+#!/usr/bin/php
+<?php
+$addr = (isset($_ENV["MUNIN_FLUXY_ADDR"])) ? $_ENV["MUNIN_FLUXY_ADDR"] : "127.0.0.1";
+$port = (isset($_ENV["MUNIN_FLUXY_PORT"])) ? $_ENV["MUNIN_FLUXY_PORT"] : "8888";
+
+$link = topy_pconnect($addr, $port);
+if (!$link) {
+	die("Could not connect to server Fluxy at $addr:$port\n");
+}
+
+$stats = topy_query($link, "report");
+if (!isset($stats["memstats"]))
+	die();
+
+$stats = $stats["memstats"];
+//krsort($stats);
+
+if ($argc == 2 and $argv[1] == "config") {
+	echo "graph_title Fluxy memstats\n";
+	echo "graph_vlabel Number of allocated buffers by size\n";
+	echo "graph_category Fluxy\n";
+	echo "graph_info This graph shows the number of allocated buffers by size (on $addr:$port)\n";
+
+	$first = true;
+	foreach ($stats as $key => $value) {
+		$field = "size_$key";
+		echo $field.".draw ".(($first) ? "AREA" : "STACK")."\n";
+		echo $field.".label ".$key." bytes\n";
+		$first = false;
+	}
+	die();
+}
+
+foreach ($stats as $key => $value) {
+	$field = "size_$key";
+	echo $field.".value ".$value."\n";
+}
+
+?>

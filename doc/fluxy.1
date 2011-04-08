@@ -1,0 +1,95 @@
+.TH FLUXY 1 "jan 28, 2009"
+.SH NAME
+fluxy \- TCP server for newsfeed generation
+.SH USAGE
+.HP 8
+\fBtopy [option]
+.RI
+.SH DESCRIPTION
+\fBFluxy\fR is a TCP server designed to generate newsfeed.
+.RI
+.SH OPTIONS
+.TP
+.B \-a, \-\-address <ip address>
+Ip address to listen. Default adress is 0.0.0.0.
+
+.TP
+.B \-p, \-\-port <port>
+Port to listen. Default port is 8888
+
+.TP
+.B \-A, \-\-udp\-address <ip address>
+IP adress of udp server
+
+.TP
+.B \-P, \-\-udp\-port <port>
+Port of udp server
+
+.TP
+.B \-z, \-\-slave-address  <ip address>
+IP adress of slave server
+
+.TP
+.B \-Z, \-\-slave-port <port>
+Port of slave server
+
+.TP
+.B \-r, \-\-restore <path>
+Restore memory from dump file
+
+.TP
+.B \-R, \-\-restore-autodump <path>
+Restore memory from autodump file
+
+.TP
+.B \-T, \-\-autodump-target <path>
+Set path for autodump target
+
+.TP
+.B \-D, \-\-autodump-delay <time>
+Set pause after each autodump
+
+.TP
+.B \-c, \-\-autocleanup-delay <time>
+Set pause after each autocleanup
+
+.TP
+.B \-c, \-\-autocleanup-delay <time>
+Set pause after each autocleanup
+
+.TP
+.B \-e, \-\-messages-expiration <time>
+Set messages expiration
+
+.TP
+.B \-s, \-\-messages-size <int>
+Max number of messages by user
+
+.TP
+.B \-i, \-\-pidfile <path>
+Write the pid of the process to the given file
+
+.TP
+.B \-v, \-\-verbose
+Turn on verbose output
+
+.TP
+.B \-h, \-\-help
+print this help and exit
+
+.TP 
+.B \-V, \-\-version
+Show the version number and exit
+
+.SH TIME
+.RI
+The format for a <time> parameter is <int>(s/m/h/d/M/y)
+.TP
+.B For example: 
+1 hour can be setted as: 3600s / 60m / 1h 
+
+.RI
+.SH AUTHOR
+\fBFluxy\fR and this manual page were written by Nicolas Vion <nico@yojik.eu>.
+
+
